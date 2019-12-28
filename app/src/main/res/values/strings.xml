@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GreenOlives</string>
+    <string name="company_name_hint">"Enter company name"</string>
+    <string name="company_name_label">Name</string>
+    <string name="company_details_label">Details</string>
+    <string name="company_funded_label">Funded</string>
+</resources>
