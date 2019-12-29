@@ -74,14 +74,20 @@ class CompanyListFragment : Fragment() {
         override fun onClick(v: View) {
             Toast.makeText(context, "${company.name} pressed", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     private inner class CompanyAdapter(var companies : List<Company>)
         : RecyclerView.Adapter<CompanyHolder>() {
 
+        override fun getItemViewType(position: Int): Int {
+            if(companies[position].isFunded) {
+                return R.layout.list_item_company_funded
+            }
+            return R.layout.list_item_company
+        }
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CompanyHolder {
-            val view = layoutInflater.inflate(R.layout.list_item_company, parent, false)
+            val view = layoutInflater.inflate(viewType, parent, false)
             return CompanyHolder(view)
         }
 
@@ -92,6 +98,4 @@ class CompanyListFragment : Fragment() {
             holder.bind(company)
         }
     }
-
-
 }
