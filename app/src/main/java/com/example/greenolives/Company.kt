@@ -12,7 +12,9 @@ data class Company (val id : UUID = UUID.randomUUID(),
                var fundingStatus: String = "",
                var numInvestors: Int = 0,
                var rating: Double = 0.0,
-               var size: String = "") {
+               var size: String = "",
+               var image: String = "greenolives") {
+
     constructor(name: String,
                 tagline: String,
                 size: String,
@@ -27,7 +29,26 @@ data class Company (val id : UUID = UUID.randomUUID(),
                    "",
                    0,
                    0.0,
-                   size)
+                   size,
+                   "greenolives")
+    constructor(name: String,
+                tagline: String,
+                size: String,
+                specialization: String,
+                image: String)
+            : this(UUID.randomUUID(),
+                   name,
+                   tagline,
+                   specialization,
+                   "",
+                   Date(),
+                   false,
+                   "",
+                   0,
+                   0.0,
+                   size,
+                   image)
+
     constructor(name: String,
                 tagline: String,
                 size: String,
@@ -35,16 +56,37 @@ data class Company (val id : UUID = UUID.randomUUID(),
                 fundingStatus: String,
                 numInvestors: Int)
             : this(UUID.randomUUID(),
-        name,
-        tagline,
-        specialization,
-        "",
-        Date(),
-        true,
-        fundingStatus,
-        numInvestors,
-        0.0,
-        size)
+                   name,
+                   tagline,
+                   specialization,
+                   "",
+                   Date(),
+                   true,
+                   fundingStatus,
+                   numInvestors,
+                   0.0,
+                   size,
+                   "greenolives")
+
+    constructor(name: String,
+                tagline: String,
+                size: String,
+                specialization: String,
+                fundingStatus: String,
+                numInvestors: Int,
+                image: String)
+            : this(UUID.randomUUID(),
+                   name,
+                   tagline,
+                   specialization,
+                   "",
+                   Date(),
+                   true,
+                   fundingStatus,
+                   numInvestors,
+                   0.0,
+                   size,
+                   image)
 }
 
 

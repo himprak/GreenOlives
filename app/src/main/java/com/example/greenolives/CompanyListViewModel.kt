@@ -9,183 +9,207 @@ class CompanyListViewModel : ViewModel() {
     init {
         companies += Company(
             "Instamojo",
-            "Full-stack platform for 1+ million MSMEs",
-            "51-200 people",
-            "Payments, Mobile Commerce",
+            "\"Full-stack platform for 1+ million MSMEs\"",
+            "51-200 empolyees",
+            "Payments",
             "Series B",
-            4
+            4,
+            "instamojo"
         )
 
         companies += Company(
             "ixigo.com",
-            "India's Mobile Travel Marketplace",
-            "51-200 people",
+            "\"India's Mobile Travel Marketplace\"",
+            "51-200 empolyees",
             "Online Travel & Tourism",
             "Series B",
-            5
+            5,
+            "ixigo"
         )
 
         companies += Company(
             "Unacademy",
-            "India's largest free learning platform",
-            "201-500 people",
-            "Mobile Education"
+            "\"India's largest free learning platform\"",
+            "201-500 empolyees",
+            "Mobile Education",
+            "unacademy"
         )
 
         companies += Company(
             "Nykaa.com",
-            "India's premier online destination for beauty & wellness",
-            "201-500 people",
-            "E-Commerce, Beauty"
+            "\"India's premier online destination for beauty & wellness\"",
+            "201-500 empolyees",
+            "E-Commerce, Beauty",
+            "nykaa"
         )
 
         companies += Company(
             "Shuttl",
-            "Bus-aggregating platform solving daily commute problems.",
-            "201-500 people",
-            "Mobile Transportation"
+            "\"Bus-aggregating platform solving daily commute problems\"",
+            "201-500 empolyees",
+            "Mobile Transportation",
+            "shuttl"
         )
 
         companies += Company(
             "Haptik",
-            "One of the world's largest conversational AI platforms",
-            "51-200 people",
-            "Artificial Intelligence"
+            "\"Conversational AI platforms\"",
+            "51-200 empolyees",
+            "Artificial Intelligence",
+            "haptik"
         )
 
         companies += Company(
             "Locus.sh",
-            "Intelligent Logistics",
-            "51-200 people",
-            "E-Commerce Logistics, Hyperlocal Optimization"
+            "\"Intelligent Logistics\"",
+            "51-200 empolyees",
+            "E-Commerce Logistics",
+            "locus"
         )
 
         companies += Company(
             "Swiggy",
-            "Food Delivery 2.0 for India",
-            "1001-5000 people",
+            "\"Food Delivery 2.0 for India\"",
+            "1001-5000 empolyees",
             "Food and Beverages Logistics",
             "Series H",
-            8
+            8,
+            "swiggy"
         )
 
         companies += Company(
             "EazyDiner",
-            "Online Restaurant Reservations",
-            "201-500 people",
-            "Online Reservations, Restaurants E-Commerce"
+            "\"Online Restaurant Reservations\"",
+            "201-500 empolyees",
+            "Online Reservations",
+            "eazydiner"
         )
 
         companies += Company(
             "Craftsvilla.com",
-            "Largest Online Ethnic Store with Strong funding",
-            "51-200 people",
-            "E-Commerce"
+            "\"Fresh Designs Everyday!\"",
+            "51-200 empolyees",
+            "E-Commerce",
+            "craftsvilla"
         )
 
         companies += Company(
             "Fynd",
-            "Fresh Fashion, Straight From Brand Stores.",
-            "51-200 people",
-            "Mobile Fashion E-Commerce, Artificial Intelligence",
+            "\"Fresh Fashion, Straight From Brand Stores\"",
+            "51-200 empolyees",
+            "Fashion E-Commerce, Artificial Intelligence",
             "Series C",
-            6
+            6,
+            "fynd"
 
         )
 
         companies += Company(
             "smallcase",
-            "Changing how India invests",
-            "51-200 people",
-            "Stocks, Financial Services, Personal Finance, Financial Technology"
+            "\"Changing how India invests\"",
+            "51-200 empolyees",
+            "Personal Finance, Financial Technology",
+            "smallcase"
         )
 
         companies += Company(
-            "DocTalk (YC W17)",
-            "Revolutionizing patient care while making doctors' lives better.",
-            "1-10 people",
-            "Market Healthcare"
+            "DocTalk",
+            "\"Revolutionizing patient care\"",
+            "1-10 empolyees",
+            "Healthcare",
+            "doctalk"
         )
 
         companies += Company(
             "Skylark Drones",
-            "Delivering drone solutions that matter",
-            "11-50 people",
-            "Infrastructure Monitoring, Utilities, Agriculture"
+            "\"Delivering drone solutions that matter\"",
+            "11-50 empolyees",
+            "Infrastructure Monitoring, Agriculture",
+            "skylark"
         )
 
         companies += Company(
             "Postman",
-            "Postman is the leading collaboration platform for API development.",
-            "51-200 people",
-            "Developer Tools, SaaS, Web Development, Cloud Infrastructure"
+            "\"Collaboration platform for API development\"",
+            "51-200 empolyees",
+            "Web Development, Cloud Infrastructure",
+            "postman"
         )
 
         companies += Company(
             "Testbook.com",
-            "Exam Preparation Simplified",
-            "51-200 people",
+            "\"Exam Preparation Simplified\"",
+            "51-200 empolyees",
             "K-12 Education",
             "Series A",
-            2
+            2,
+            "testbook"
         )
 
         companies += Company(
             "Nanonets",
-            "Machine Learning as a Service for Developers",
-            "11-50 people",
-            "Markets Machine Learning, Big Data"
+            "\"Machine Learning as a Service for Developers\"",
+            "11-50 empolyees",
+            "Machine Learning, Big Data",
+            "nanonets"
         )
 
         companies += Company(
             "LogiNext",
-            "Welcome To The World Of Organized Logistics and Field Service Management",
-            "51-200 people",
-            "Logistics Software, E-Commerce, Supply Chain Management"
+            "\"Organized Logistics and Field Service Management\"",
+            "51-200 empolyees",
+            "Logistics Software",
+            "loginext"
         )
 
         companies += Company(
             "Kisan Network",
-            "Y-Combinator and Thiel Foundation Backed Online Platform for Indian Agriculture",
-            "51-200 people",
-            "Agriculture, Mobile Commerce"
+            "\"Online Platform for Indian Agriculture\"",
+            "51-200 empolyees",
+            "Agriculture, Mobile Commerce",
+            "kisan"
         )
 
         companies += Company(
             "Niki",
-            "Niki is your local agent that helps you access services online.",
-            "51-200 people",
-            "Mobile Commerce, Natural Language Processing"
+            "\"Your local agent helping you access services online\"",
+            "51-200 empolyees",
+            "Natural Language Processing",
+            "niki"
         )
 
         companies += Company(
             "HyperTrack",
-            "Build applications that track the movement of your business",
-            "11-50 people",
-            "Mobile Maps, Location Based Services, Developer Tools"
+            "\"Build applications that track the movement of your business\"",
+            "11-50 empolyees",
+            "Location Based Services",
+            "hypertrack"
         )
 
         companies += Company(
             "The Moms Co.",
-            "Digital-first FMCG company on a mission to help Moms make Safe, Natural, Effective choices",
-            "11-50 people",
-            "Consumer Internet, Consumer Goods, Fast-Moving Consumer Goods"
+            "\"Helping Moms make Safe, Natural, Effective choices\"",
+            "11-50 empolyees",
+            "Consumer Internet, FMCG",
+            "moms"
         )
 
         companies += Company(
             "MobiKwik",
-            "Digital Credit for the Masses of India",
-            "201-500 people",
-            "Mobile Payments, Consumer Lending, Fin Tech",
+            "\"Digital Credit for the Masses of India\"",
+            "201-500 empolyees",
+            "Payments, Lending",
             "Series E",
-            5
+            5,
+            "mobikwik"
         )
 
         companies += Company(
             "Junglee Games",
-            "The Fastest Growing Skill Games Company. 25 million+ users. $600M+ GMV",
-            "201-500 people",
-            "Mobile Games"
+            "\"Skill Games!\"",
+            "201-500 empolyees",
+            "Mobile Games",
+            "junglee"
         )
     }
 }

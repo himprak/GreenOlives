@@ -5,12 +5,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.graphics.drawable.Drawable
+
+
 
 private const val TAG = "CompanyListFragment"
 
@@ -66,8 +70,7 @@ class CompanyListFragment : Fragment() {
         private val fundingStatusView: TextView? = itemView.findViewById(R.id.company_funding_status)
         private val numInvestorsTextView: TextView? = itemView.findViewById(R.id.company_num_investors)
         private val sizeTextView: TextView = itemView.findViewById(R.id.company_size)
-
-
+        private val companyImageView: ImageView = itemView.findViewById(R.id.imageView2)
 
         init {
             itemView.setOnClickListener(this)
@@ -81,6 +84,12 @@ class CompanyListFragment : Fragment() {
             specializationTextView.text = company.specialization
             //ratingTextView.text = company.rating.toString()
             sizeTextView.text = company.size
+
+            val res = resources
+            val resID = res.getIdentifier(company.image, "drawable", activity?.packageName)
+            val drawable = res.getDrawable(resID)
+            companyImageView.setImageDrawable(drawable)
+
             if(company.isFunded) {
                 fundingStatusView?.text = company.fundingStatus
                 numInvestorsTextView?.text = "${company.numInvestors} investors"
