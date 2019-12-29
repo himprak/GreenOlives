@@ -9,18 +9,55 @@
         android:id="@+id/company_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Company Name"/>
+        android:text="Company Name"
+        android:textStyle="bold"
+        android:textColor="#463C3C"
+        android:textSize="32dp"/>
 
     <TextView
+        android:id="@+id/company_tagline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tagline"
+        android:textStyle="italic"/>
+
+    <!--TextView
         android:id="@+id/company_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Incorporation Date"/>
+        android:text="Incorporation Date"/-->
 
     <TextView
-        android:id="@+id/company_funded"
+        android:id="@+id/company_specialization"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Funded"/>
+        android:text="Specialization"/>
+
+    <!--TextView
+        android:id="@+id/company_rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Rating"/-->
+
+    <TextView
+        android:id="@+id/company_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Number of empolyees"
+        android:textColor="#463B72"/>
+
+    <TextView
+        android:id="@+id/company_funding_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Funded"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/company_num_investors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Number of Investors"
+        android:textStyle="bold"/>
 
 </LinearLayout>

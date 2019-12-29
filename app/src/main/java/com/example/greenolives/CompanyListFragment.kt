@@ -59,7 +59,15 @@ class CompanyListFragment : Fragment() {
 
         private lateinit var company : Company
         private val nameTextView: TextView = itemView.findViewById(R.id.company_name)
-        private val dateTextView: TextView = itemView.findViewById(R.id.company_date)
+        private val taglineTextView: TextView = itemView.findViewById(R.id.company_tagline)
+        //private val dateTextView: TextView = itemView.findViewById(R.id.company_date)
+        private val specializationTextView: TextView = itemView.findViewById(R.id.company_specialization)
+        //private val ratingTextView: TextView = itemView.findViewById(R.id.company_rating)
+        private val fundingStatusView: TextView? = itemView.findViewById(R.id.company_funding_status)
+        private val numInvestorsTextView: TextView? = itemView.findViewById(R.id.company_num_investors)
+        private val sizeTextView: TextView = itemView.findViewById(R.id.company_size)
+
+
 
         init {
             itemView.setOnClickListener(this)
@@ -68,7 +76,16 @@ class CompanyListFragment : Fragment() {
         fun bind(company : Company) {
             this.company = company
             nameTextView.text = company.name
-            dateTextView.text = company.dateOfIncorporation.toString()
+            taglineTextView.text = company.tagline
+            //dateTextView.text = company.dateOfIncorporation.toString()
+            specializationTextView.text = company.specialization
+            //ratingTextView.text = company.rating.toString()
+            sizeTextView.text = company.size
+            if(company.isFunded) {
+                fundingStatusView?.text = company.fundingStatus
+                numInvestorsTextView?.text = "${company.numInvestors} investors"
+            }
+
         }
 
         override fun onClick(v: View) {
