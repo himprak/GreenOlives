@@ -3,6 +3,7 @@ package com.example.greenolives
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,10 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import java.util.*
+
+private const val ARG_COMPANY_ID = "company_id"
+private const val TAG = "CompanyFragment"
 
 class CompanyFragment : Fragment() {
 
@@ -18,9 +23,22 @@ class CompanyFragment : Fragment() {
     private lateinit var dateButton: Button
     private lateinit var fundedCheckBox: CheckBox
 
+    companion object {
+        fun newInstance(companyId: UUID): CompanyFragment {
+            val args = Bundle().apply {
+                putSerializable(ARG_COMPANY_ID, companyId)
+            }
+            return CompanyFragment().apply {
+                arguments = args
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         company = Company()
+        val companyId: UUID = arguments?.getSerializable(ARG_COMPANY_ID) as UUID
+        Log.d(TAG, "args bundle companyId $companyId")
     }
 
     override fun onCreateView(

@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), CompanyListFragment.Callbacks {
 
     override fun onCompanySelected(companyId: UUID) {
         //Toast.makeText(context, "${company.name} pressed", Toast.LENGTH_SHORT).show()
-        val fragment = CompanyFragment()
+        val fragment = CompanyFragment.newInstance(companyId)
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container, fragment)
