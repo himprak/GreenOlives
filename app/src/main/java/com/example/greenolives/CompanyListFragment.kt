@@ -1,5 +1,6 @@
 package com.example.greenolives
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,7 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.graphics.drawable.Drawable
-
+import java.util.*
 
 
 private const val TAG = "CompanyListFragment"
@@ -22,11 +23,25 @@ class CompanyListFragment : Fragment() {
 
     private lateinit var companyRecyclerView: RecyclerView
     private var adapter: CompanyAdapter? = null
+    private var callbacks: Callbacks? = null
+
+    interface Callbacks {
+        fun onCompanySelected(companyId: UUID)
+    }
 
     private val companyListViewModel: CompanyListViewModel by lazy {
         ViewModelProviders.of(this).get(CompanyListViewModel::class.java)
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callbacks = context as Callbacks?
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callbacks = null
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "Total companies: ${companyListViewModel.companies.size}")
@@ -98,7 +113,8 @@ class CompanyListFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
-            Toast.makeText(context, "${company.name} pressed", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "${company.name} pressed", Toast.LENGTH_SHORT).show()
+            callbacks?.onCompanySelected(company.id)
         }
     }
 

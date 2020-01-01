@@ -14,28 +14,11 @@ data class Company (val id : UUID = UUID.randomUUID(),
                var rating: Double = 0.0,
                var size: String = "",
                var image: String = "greenolives") {
-
-    constructor(name: String,
-                tagline: String,
-                size: String,
-                specialization: String)
-            : this(UUID.randomUUID(),
-                   name,
-                   tagline,
-                   specialization,
-                   "",
-                   Date(),
-                   false,
-                   "",
-                   0,
-                   0.0,
-                   size,
-                   "greenolives")
     constructor(name: String,
                 tagline: String,
                 size: String,
                 specialization: String,
-                image: String)
+                image: String = "greenolives")
             : this(UUID.randomUUID(),
                    name,
                    tagline,
@@ -54,27 +37,8 @@ data class Company (val id : UUID = UUID.randomUUID(),
                 size: String,
                 specialization: String,
                 fundingStatus: String,
-                numInvestors: Int)
-            : this(UUID.randomUUID(),
-                   name,
-                   tagline,
-                   specialization,
-                   "",
-                   Date(),
-                   true,
-                   fundingStatus,
-                   numInvestors,
-                   0.0,
-                   size,
-                   "greenolives")
-
-    constructor(name: String,
-                tagline: String,
-                size: String,
-                specialization: String,
-                fundingStatus: String,
                 numInvestors: Int,
-                image: String)
+                image: String = "greenolives")
             : this(UUID.randomUUID(),
                    name,
                    tagline,
