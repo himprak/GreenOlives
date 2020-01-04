@@ -1,40 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="16dp">
+    android:layout_height="wrap_content">
 
     <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/company_name_label"/>
-
-    <EditText
         android:id="@+id/company_name"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/company_name_hint"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Company Name"
+        android:textColor="#463C3C"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/company_tagline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/company_details_label"/>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="114dp"
+        android:layout_height="149dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/company_launch_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/swiggy" />
 
-    <Button
+    <!--TextView
         android:id="@+id/company_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Sat Dec 28 13:42 IST 2019"/>
+        android:text="Incorporation Date"/-->
 
-    <CheckBox
-        android:id="@+id/company_funded"
+    <TextView
+        android:id="@+id/company_tagline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Tagline"
+        android:textSize="10dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/company_specialization"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/company_name" />
+
+    <TextView
+        android:id="@+id/company_specialization"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Specialization"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/company_separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/company_tagline" />
+
+    <!--TextView
+        android:id="@+id/company_rating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/company_funded_label"/>
+        android:text="Current Rating"/-->
+    <View
+        android:id="@+id/company_separator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginEnd="40dp"
+        android:background="#c0c0c0"
+        app:layout_constraintBottom_toTopOf="@+id/company_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/company_specialization" />
+
+    <TextView
+        android:id="@+id/company_size"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Number of empolyees"
+        android:textSize="9dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/company_launch_label"
+        app:layout_constraintEnd_toStartOf="@+id/company_funding_status"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/company_separator" />
+
+    <TextView
+        android:id="@+id/company_funding_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Seed Stage"
+        android:textSize="9dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/company_launch_label"
+        app:layout_constraintEnd_toStartOf="@+id/company_num_investors"
+        app:layout_constraintStart_toEndOf="@+id/company_size"
+        app:layout_constraintTop_toBottomOf="@+id/company_separator"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <TextView
+        android:id="@+id/company_num_investors"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Raising seed"
+        android:textSize="9dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/company_launch_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/company_funding_status"
+        app:layout_constraintTop_toBottomOf="@+id/company_separator"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/company_launch_label"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/company_launch_label"
+
+        app:layout_constraintBottom_toTopOf="@+id/company_launch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+
+    <TextView
+        android:id="@+id/company_launch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Launch"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/company_founders_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_launch_label" />
+
+    <TextView
+        android:id="@+id/company_founders_label"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/company_founders_label"
+
+        app:layout_constraintBottom_toTopOf="@+id/company_founders"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_launch"/>
+
+    <TextView
+        android:id="@+id/company_founders"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Founders"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/company_investors_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_founders_label" />
+
+    <TextView
+        android:id="@+id/company_investors_label"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/company_investors_label"
+
+        app:layout_constraintBottom_toTopOf="@+id/company_investors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_founders"/>
+
+    <TextView
+        android:id="@+id/company_investors"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Key Investors"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/company_funding_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_investors_label" />
+
+    <TextView
+        android:id="@+id/company_funding_label"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/company_funding_label"
+
+        app:layout_constraintBottom_toTopOf="@+id/company_funding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_investors"/>
+
+    <TextView
+        android:id="@+id/company_funding"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Total Funding"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/company_about_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_funding_label" />
+
+    <TextView
+        android:id="@+id/company_about_label"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/company_about_label"
+
+        app:layout_constraintBottom_toTopOf="@+id/company_about"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_funding"/>
+
+    <TextView
+        android:id="@+id/company_about"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="About"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/company_contact_invest_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_about_label" />
+
+    <LinearLayout
+        android:id="@+id/company_contact_invest_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_about" >
+
+        <Button
+            android:id="@+id/true_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/company_contact_button"
+            android:background="@android:color/holo_blue_light"
+            android:layout_gravity="start"/>
+
+        <Button
+            android:id="@+id/false_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/company_invest_button"
+            android:background="@android:color/holo_green_light"
+            android:layout_gravity="end"/>
+
+    </LinearLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">GreenOlives</string>
     <string name="company_name_hint">"Enter company name"</string>
-    <string name="company_name_label">Name</string>
-    <string name="company_details_label">Details</string>
+    <string name="company_launch_label">Launch</string>
+    <string name="company_about_label">About</string>
     <string name="company_funded_label">Funded</string>
+    <string name="company_founders_label">Founders</string>
+    <string name="company_investors_label">Key Investors</string>
+    <string name="company_funding_label">Total Funding</string>
+    <string name="company_contact_button">Contact</string>
+    <string name="company_invest_button">Invest</string>
 </resources>

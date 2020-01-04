@@ -16,7 +16,10 @@ data class Company (@PrimaryKey val id : UUID = UUID.randomUUID(),
                     var numInvestors: Int = 0,
                     var rating: Double = 0.0,
                     var size: String = "",
-                    var image: String = "greenolives") {
+                    var image: String = "greenolives",
+                    var keyInvestors: String = "",
+                    var totalFunding: String = "",
+                    var about: String = "") {
     constructor(name: String,
                 tagline: String,
                 size: String,
