@@ -3,14 +3,16 @@ package com.example.greenolives
 import androidx.lifecycle.ViewModel
 
 class CompanyListViewModel : ViewModel() {
-    val companies = mutableListOf<Company>()
+    private val companyRepository = CompanyRepository.get()
+    val companyListLiveData = companyRepository.getCompanies()
 
+    //val companies = mutableListOf<Company>()
 
-    init {
+    /*init {
         companies += Company(
             "Instamojo",
             "\"Full-stack platform for 1+ million MSMEs\"",
-            "51-200 empolyees",
+            "51-200 employees",
             "Payments",
             "Series B",
             4,
@@ -211,6 +213,6 @@ class CompanyListViewModel : ViewModel() {
             "Mobile Games",
             "junglee"
         )
-    }
+    }*/
 }
 

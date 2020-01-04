@@ -66,7 +66,7 @@
         android:layout_marginEnd="16dp"
         android:text="Specialization"
         android:textSize="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/company_size"
+        app:layout_constraintBottom_toTopOf="@+id/company_separator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/company_tagline" />
@@ -77,6 +77,19 @@
         android:layout_height="wrap_content"
         android:text="Current Rating"/-->
 
+    <View
+        android:id="@+id/company_separator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginEnd="40dp"
+        android:background="#c0c0c0"
+        app:layout_constraintBottom_toTopOf="@+id/company_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/company_specialization" />
+
     <TextView
         android:id="@+id/company_size"
         android:layout_width="0dp"
@@ -85,11 +98,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Number of empolyees"
-        android:textColor="#463B72"
-        android:textSize="12dp"
+        android:textSize="9dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/company_specialization" />
+        app:layout_constraintTop_toBottomOf="@+id/company_separator" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

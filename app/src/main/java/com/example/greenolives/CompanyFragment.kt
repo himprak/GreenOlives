@@ -11,6 +11,8 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import java.util.*
 
 private const val ARG_COMPANY_ID = "company_id"
@@ -22,6 +24,9 @@ class CompanyFragment : Fragment() {
     private lateinit var nameField: EditText
     private lateinit var dateButton: Button
     private lateinit var fundedCheckBox: CheckBox
+    private val companyDetailViewModel: CompanyDetailViewModel by lazy {
+        ViewModelProviders.of(this).get(CompanyDetailViewModel::class.java)
+    }
 
     companion object {
         fun newInstance(companyId: UUID): CompanyFragment {
@@ -38,7 +43,8 @@ class CompanyFragment : Fragment() {
         super.onCreate(savedInstanceState)
         company = Company()
         val companyId: UUID = arguments?.getSerializable(ARG_COMPANY_ID) as UUID
-        Log.d(TAG, "args bundle companyId $companyId")
+        //Log.d(TAG, "args bundle companyId $companyId")
+        companyDetailViewModel.loadCompany(companyId)
     }
 
     override fun onCreateView(
@@ -57,6 +63,20 @@ class CompanyFragment : Fragment() {
 
         fundedCheckBox = view.findViewById(R.id.company_funded) as CheckBox
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        companyDetailViewModel.companyLiveData.observe(
+            viewLifecycleOwner,
+            Observer { company ->
+                company?.let {
+                    this.company = company
+                    updateUI()
+                }
+
+            }
+        )
     }
 
     override fun onStart() {
@@ -84,5 +104,16 @@ class CompanyFragment : Fragment() {
 
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        companyDetailViewModel.saveCompany(company)
+    }
+
+    private fun updateUI() {
+        nameField.setText(company.name)
+        dateButton.text = company.dateOfIncorporation.toString()
+        fundedCheckBox.isChecked = company.isFunded
     }
 }

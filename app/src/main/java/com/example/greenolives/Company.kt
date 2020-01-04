@@ -1,19 +1,22 @@
 package com.example.greenolives
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.*
 
-data class Company (val id : UUID = UUID.randomUUID(),
-               var name: String = "",
-               var tagline: String = "",
-               var specialization: String = "",
-               var founders: String = "",
-               var dateOfIncorporation: Date = Date(),
-               var isFunded: Boolean = false,
-               var fundingStatus: String = "",
-               var numInvestors: Int = 0,
-               var rating: Double = 0.0,
-               var size: String = "",
-               var image: String = "greenolives") {
+@Entity
+data class Company (@PrimaryKey val id : UUID = UUID.randomUUID(),
+                    var name: String = "",
+                    var tagline: String = "",
+                    var specialization: String = "",
+                    var founders: String = "",
+                    var dateOfIncorporation: Date = Date(),
+                    var isFunded: Boolean = false,
+                    var fundingStatus: String = "",
+                    var numInvestors: Int = 0,
+                    var rating: Double = 0.0,
+                    var size: String = "",
+                    var image: String = "greenolives") {
     constructor(name: String,
                 tagline: String,
                 size: String,

@@ -22,7 +22,7 @@ private const val TAG = "CompanyListFragment"
 class CompanyListFragment : Fragment() {
 
     private lateinit var companyRecyclerView: RecyclerView
-    private var adapter: CompanyAdapter? = null
+    private var adapter: CompanyAdapter? = CompanyAdapter(emptyList())
     private var callbacks: Callbacks? = null
 
     interface Callbacks {
@@ -42,10 +42,11 @@ class CompanyListFragment : Fragment() {
         super.onDetach()
         callbacks = null
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "Total companies: ${companyListViewModel.companies.size}")
-    }
+    }*/
 
     companion object {
         fun newInstance(): CompanyListFragment {
@@ -62,13 +63,27 @@ class CompanyListFragment : Fragment() {
 
         companyRecyclerView = view.findViewById(R.id.company_recycler_view) as RecyclerView
         companyRecyclerView.layoutManager = LinearLayoutManager(context)
+        companyRecyclerView.adapter = adapter
 
-        updateUI()
+        //updateUI()
         return view
     }
 
-    private fun updateUI() {
-        val companies = companyListViewModel.companies
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        companyListViewModel.companyListLiveData.observe(
+            viewLifecycleOwner,
+            androidx.lifecycle.Observer { companies ->
+                companies?.let {
+                    Log.i(TAG, "Got companies ${companies.size}")
+                    updateUI(companies)
+                }
+            }
+        )
+    }
+
+    private fun updateUI(companies: List<Company>) {
+        //val companies = companyListViewModel.companies
         adapter = CompanyAdapter(companies)
         companyRecyclerView.adapter = adapter
     }
