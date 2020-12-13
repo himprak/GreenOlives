@@ -22,4 +22,7 @@ interface CompanyDao {
 
     @Insert
     fun addCompany(company: Company)
+
+    @Query("DELETE FROM company")
+    fun clearCompanies()
 }

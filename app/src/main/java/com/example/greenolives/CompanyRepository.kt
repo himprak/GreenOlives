@@ -39,6 +39,12 @@ class CompanyRepository private constructor(context: Context) {
         }
     }
 
+    fun clearCompanies() {
+        executor.execute {
+            companyDao.clearCompanies()
+        }
+    }
+
     companion object {
 
         private var INSTANCE: CompanyRepository? = null
@@ -47,6 +53,8 @@ class CompanyRepository private constructor(context: Context) {
             if(INSTANCE == null) {
                 INSTANCE = CompanyRepository(context)
             }
+
+            INSTANCE?.clearCompanies()
 
             INSTANCE?.addCompany(Company(
                 UUID.randomUUID(),
