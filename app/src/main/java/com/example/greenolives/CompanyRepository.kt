@@ -1,17 +1,58 @@
 package com.example.greenolives
 
 import android.content.Context
+import android.util.Log
 import androidx.core.util.rangeTo
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
 import com.example.greenolives.database.CompanyDatabase
 import java.lang.IllegalStateException
 import java.util.*
 import java.util.concurrent.Executors
+import com.example.greenolives.api.CompanyApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
 
+private const val TAG = "CompanyRepository"
 private const val DATABASE_NAME = "company-database"
 
 class CompanyRepository private constructor(context: Context) {
+
+    private val companyApi: CompanyApi
+
+    init {
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://www.flickr.com/")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .build()
+
+        companyApi = retrofit.create(CompanyApi::class.java)
+    }
+
+    fun fetchContents(): LiveData<String> {
+        val responseLiveData: MutableLiveData<String> = MutableLiveData()
+        val companyRequest: Call<String> = companyApi.fetchContents()
+
+        companyRequest.enqueue(object: Callback<String> {
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Log.e(TAG, "Failed to execute company api", t)
+            }
+
+            override fun onResponse(
+                call: Call<String>,
+                response: Response<String>
+            ) {
+                Log.d(TAG, "Response received")
+                responseLiveData.value = response.body()
+            }
+        })
+
+        return responseLiveData
+    }
 
     private val database : CompanyDatabase = Room.databaseBuilder(
         context.applicationContext,

@@ -10,6 +10,7 @@ class CompanyDetailViewModel : ViewModel() {
 
     private val companyRepository = CompanyRepository.get()
     private val companyIdLiveData = MutableLiveData<UUID>()
+    val companyLiveDataHttp: LiveData<String> = companyRepository.fetchContents()
 
     var companyLiveData: LiveData<Company?> =
         Transformations.switchMap(companyIdLiveData) { companyId ->

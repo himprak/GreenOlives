@@ -196,6 +196,12 @@ class CompanyFragment : Fragment() {
 
             }
         )
+        companyDetailViewModel.companyLiveDataHttp.observe(
+            viewLifecycleOwner,
+            Observer { responseString ->
+                Log.d(TAG, "Response received: $responseString")
+            }
+        )
     }
 
     override fun onStart() {
