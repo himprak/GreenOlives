@@ -186,7 +186,7 @@ class CompanyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        companyDetailViewModel.companyLiveData.observe(
+/*        companyDetailViewModel.companyLiveData.observe(
             viewLifecycleOwner,
             Observer { company ->
                 company?.let {
@@ -195,11 +195,15 @@ class CompanyFragment : Fragment() {
                 }
 
             }
-        )
+        )*/
         companyDetailViewModel.companyLiveDataHttp.observe(
             viewLifecycleOwner,
-            Observer { responseString ->
-                Log.d(TAG, "Response received: $responseString")
+            Observer { companyItems ->
+                Log.d(TAG, "Response received: $companyItems")
+                companyItems?.let {
+                    this.company = companyItems[0]
+                    updateUI()
+                }
             }
         )
     }

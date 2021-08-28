@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface CompanyApi {
 
-    @GET("/")
-    fun fetchContents() : Call<String>
+    @GET("/hello")
+    fun fetchContents() : Call<ApiResponse>
 }

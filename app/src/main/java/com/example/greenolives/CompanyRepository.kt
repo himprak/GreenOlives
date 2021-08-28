@@ -6,15 +6,18 @@ import androidx.core.util.rangeTo
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
+import com.example.greenolives.api.ApiResponse
 import com.example.greenolives.database.CompanyDatabase
 import java.lang.IllegalStateException
 import java.util.*
 import java.util.concurrent.Executors
 import com.example.greenolives.api.CompanyApi
+import com.example.greenolives.api.CompanyResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
 private const val TAG = "CompanyRepository"
@@ -26,28 +29,32 @@ class CompanyRepository private constructor(context: Context) {
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://www.flickr.com/")
-            .addConverterFactory(ScalarsConverterFactory.create())
+            .baseUrl("http://34.131.60.146:8080/")
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         companyApi = retrofit.create(CompanyApi::class.java)
     }
 
-    fun fetchContents(): LiveData<String> {
-        val responseLiveData: MutableLiveData<String> = MutableLiveData()
-        val companyRequest: Call<String> = companyApi.fetchContents()
+    fun fetchContents(): LiveData<List<Company>> {
+        val responseLiveData: MutableLiveData<List<Company>> = MutableLiveData()
+        val companyRequest: Call<ApiResponse> = companyApi.fetchContents()
 
-        companyRequest.enqueue(object: Callback<String> {
-            override fun onFailure(call: Call<String>, t: Throwable) {
+        companyRequest.enqueue(object: Callback<ApiResponse> {
+            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
                 Log.e(TAG, "Failed to execute company api", t)
             }
 
             override fun onResponse(
-                call: Call<String>,
-                response: Response<String>
+                call: Call<ApiResponse>,
+                response: Response<ApiResponse>
             ) {
                 Log.d(TAG, "Response received")
-                responseLiveData.value = response.body()
+                val apiResponse: ApiResponse? = response.body()
+                val companyResponse: CompanyResponse? = apiResponse?.companies
+                var companyItems: List<Company> = companyResponse?.companyItems
+                    ?:mutableListOf()
+                responseLiveData.value = companyItems
             }
         })
 
